@@ -3,6 +3,7 @@ import markIcon from "../images/mark.svg";
 
 const Blog = ({ blog, handleAddBookmark, handleMarkAsRead }) => {
   const {
+    id,
     title,
     cover,
     author,
@@ -29,7 +30,7 @@ const Blog = ({ blog, handleAddBookmark, handleMarkAsRead }) => {
             src={markIcon}
             alt="mark icon"
             className="cursor-pointer"
-            onClick={() => handleAddBookmark(title)}
+            onClick={() => handleAddBookmark(blog)}
           />
         </div>
       </div>
@@ -45,7 +46,7 @@ const Blog = ({ blog, handleAddBookmark, handleMarkAsRead }) => {
       <br />
       <button
         className="px-6 py-3 mt-4 text-xl border bg-gray-50"
-        onClick={() => handleMarkAsRead(reading_time)}
+        onClick={() => handleMarkAsRead(id, reading_time)}
       >
         Mark As Read
       </button>

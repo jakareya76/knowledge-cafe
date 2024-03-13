@@ -8,18 +8,27 @@ const App = () => {
   const [readTime, setReadTime] = useState(0);
 
   const handleAddBookmark = (blog) => {
+    const id = blog.id;
+    const title = blog.title;
+
+    const newBlog = { id, title };
+
     setBookmarks((prev) => {
-      return [...prev, blog];
+      return [...prev, newBlog];
     });
   };
 
-  const handleMarkAsRead = (time) => {
+  const handleMarkAsRead = (id, time) => {
     setReadTime((prev) => {
       return prev + time;
     });
-  };
 
-  console.log(bookmarks);
+    const remainingBookmarks = bookmarks.filter(
+      (bookmark) => bookmark.id !== id
+    );
+
+    setBookmarks(remainingBookmarks);
+  };
 
   return (
     <>
