@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import markIcon from "../images/mark.svg";
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, handleAddBookmark }) => {
   const {
     title,
     cover,
@@ -25,14 +25,21 @@ const Blog = ({ blog }) => {
         </div>
         <div className="flex gap-2">
           <p>{reading_time} min read</p>
-          <img src={markIcon} alt="mark icon" className="cursor-pointer" />
+          <img
+            src={markIcon}
+            alt="mark icon"
+            className="cursor-pointer"
+            onClick={() => handleAddBookmark(title)}
+          />
         </div>
       </div>
       <h2 className="my-4 text-2xl font-semibold">{title}</h2>
 
-      {hashtags.map((hash) => {
+      {hashtags.map((hash, idx) => {
         return (
-          <span className="mx-2 text-gray-700 cursor-pointer">#{hash}</span>
+          <span key={idx} className="mx-2 text-gray-700 cursor-pointer">
+            #{hash}
+          </span>
         );
       })}
     </div>
