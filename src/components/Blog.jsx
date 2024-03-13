@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import markIcon from "../images/mark.svg";
 
-const Blog = ({ blog, handleAddBookmark }) => {
+const Blog = ({ blog, handleAddBookmark, handleMarkAsRead }) => {
   const {
     title,
     cover,
@@ -42,6 +42,13 @@ const Blog = ({ blog, handleAddBookmark }) => {
           </span>
         );
       })}
+      <br />
+      <button
+        className="px-6 py-3 mt-4 text-xl border bg-gray-50"
+        onClick={() => handleMarkAsRead(reading_time)}
+      >
+        Mark As Read
+      </button>
     </div>
   );
 };
