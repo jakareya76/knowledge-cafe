@@ -15,8 +15,6 @@ const Blogs = () => {
     getBlogsData();
   }, []);
 
-  console.log(blogs);
-
   return (
     <div className="md:w-2/3">
       {blogs.map((blog) => {
